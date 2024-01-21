@@ -311,7 +311,14 @@ function restyleByWindowWidth() {
   reality.style.margin = "0px"
   reality.style.marginTop = "2em"
   reality.style.padding = "0.5em 2em 1.5em"
+  reality.style.textAlign = "center"
   reality.style.width = "100vw"
+
+  const realityPs = document.getElementsByClassName('reality')
+  for (let i = 0; i < realityPs.length; i++) {
+    realityPs[i].style.margin = "1em auto"
+    realityPs[i].style.maxWidth = "600px"
+  }
 
   const width = (window.innerWidth && window.innerWidth > 0) ? window.innerWidth : screen.width;
 
