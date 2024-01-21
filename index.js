@@ -398,3 +398,6 @@ window.addEventListener('resize', function () {
 window.addEventListener('load', function() {
   restyleByWindowWidth()
 })
+setTimeout(() => {
+  restyleByWindowWidth()
+}, 1000)
