@@ -297,7 +297,6 @@ function restyleByWindowWidth() {
   subtitle.style.borderRadius = '1em'
   subtitle.style.color = bgColor
   subtitle.style.display = 'inline-block'
-  subtitle.style.padding = '1em'
 
   stab.style.color = fgColor
   stab.style.lineHeight = "1.75em"
@@ -328,9 +327,13 @@ function restyleByWindowWidth() {
   if (width < 500) {
     title.style.fontSize = "2em"
 
-    subtitle.innerHTML = `${fe.name}<br />${be.name}<br />${db.name}<br />${test.name}`
+    subtitle.innerHTML = `${fe.name}<div class="sep"></div>${be.name}<div class="sep"></div>${db.name}<div class="sep"></div>${test.name}`
+    subtitle.style.boxSizing = "border-box"
+    subtitle.style.lineHeight = "1.75em"
+    subtitle.style.width = "80vw"
+    subtitle.style.padding = '0.5em 1em'
 
-    stab.style.fontSize = "0.9em"
+    stab.style.fontSize = "1.3em"
     stab.style.padding = "0 10%"
 
     why.style.boxSizing = "border-box"
@@ -338,7 +341,7 @@ function restyleByWindowWidth() {
     why.style.padding = "0.5em"
     why.style.width = "90vw"
 
-    desc.style.fontSize = "0.9em"
+    desc.style.fontSize = "1.3em"
     desc.style.padding = "0.5em"
 
     reality.style.boxSizing = "inherit"
@@ -350,7 +353,11 @@ function restyleByWindowWidth() {
     title.style.fontSize = "4em"
     
     subtitle.innerHTML = `${fe.name} - ${be.name} - ${db.name} - ${test.name}`
-    
+    subtitle.style.boxSizing = "inherit"
+    subtitle.style.lineHeight = "inherit"
+    subtitle.style.width = "inherit"
+    subtitle.style.padding = '1em'
+
     stab.style.fontSize = "1.5em"
     stab.style.padding = "0 25%"
     
