@@ -316,6 +316,7 @@ function restyleByWindowWidth() {
 
   reality.style.backgroundColor = "black"
   reality.style.borderTop = `4px solid ${fgColor}`
+  reality.style.boxSizing = "border-box"
   reality.style.color = fgColor
   reality.style.margin = "0px"
   reality.style.marginTop = "2em"
@@ -343,8 +344,6 @@ function restyleByWindowWidth() {
 
     desc.style.fontSize = "1.3em"
     desc.style.padding = "0.5em"
-
-    reality.style.boxSizing = "inherit"
   } else {
     body.style.backgroundColor = bgColor
     body.style.margin = "0px"
@@ -368,8 +367,6 @@ function restyleByWindowWidth() {
 
     desc.style.fontSize = "1.5em"
     desc.style.padding = "1.5em"
-
-    reality.style.boxSizing = "border-box"
   }
 }
 
