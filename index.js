@@ -337,7 +337,7 @@ function restyleByWindowWidth() {
     title.style.fontSize = "4em"
     title.style.marginBottom = "0.5em"
     title.style.marginTop = "1em"
-    title.innerHTML = stackName
+    title.innerHTML = `The ${stackName}`
     
     const subtitle = document.getElementById('subtitle')
     subtitle.style.backgroundColor = fgColor
