@@ -42,6 +42,12 @@ const fonts = [
   "'Courier New', monospace"
 ]
 
+const titleFont = fonts[randInt(0, fonts.length - 1)]
+const subtitleFont = fonts[randInt(0, fonts.length - 1)]
+const stabFont = fonts[randInt(0, fonts.length - 1)]
+const whyFont = fonts[randInt(0, fonts.length - 1)]
+const descFont = fonts[randInt(0, fonts.length - 1)]
+
 const frontEnds = [
   { name: "Angular", description: "A platform and framework for building client-side applications with HTML, CSS, and JavaScript/TypeScript." },
   { name: "Ant Design", description: "A React UI library with a set of high-quality components and a design system following the Ant Design specification." },
@@ -263,131 +269,98 @@ const platform = platformWords[randInt(0, platformWords.length - 1)]
 const stackName = `${baseName} ${platform}`
 
 function restyleByWindowWidth() {
+  const body = document.getElementsByTagName('body')[0]
+  const title = document.getElementById('title')
+  const subtitle = document.getElementById('subtitle')
+  const stab = document.getElementById('stab')
+  const why = document.getElementById('why')
+  const desc = document.getElementById('desc')
+  const reality = document.getElementById('reality')
+  
+  title.style.fontFamily = titleFont
+  subtitle.style.fontFamily = subtitleFont
+  stab.style.fontFamily = stabFont
+  why.style.fontFamily = whyFont
+  desc.style.fontFamily = descFont
+  
+  body.style.backgroundColor = bgColor
+  body.style.margin = "0px"
+  body.style.textAlign = "center"
+
+  title.style.color = fgColor
+  title.innerHTML = `The ${stackName}`
+  title.style.marginBottom = "0.5em"
+  title.style.marginTop = "1em"
+
+  subtitle.style.backgroundColor = fgColor
+  subtitle.style.border = `4px solid white`
+  subtitle.style.borderRadius = '1em'
+  subtitle.style.color = bgColor
+  subtitle.style.display = 'inline-block'
+  subtitle.style.padding = '1em'
+
+  stab.style.color = fgColor
+  stab.style.lineHeight = "1.75em"
+  stab.innerHTML = `Welcome to ${baseName}, the next step in the evolution of the web.  Simplify and enhance your development and delivery experience to boost efficiency so you can ship better code, faster.`
+
+  why.style.backgroundColor = fgColor
+  why.style.borderRadius = '1em'
+  why.style.color = bgColor
+  why.innerHTML = `Why ${baseName}?`
+
+  desc.style.backgroundColor = 'black'
+  desc.style.border = `4px solid ${fgColor}`
+  desc.style.color = fgColor
+  desc.style.margin = "1em auto"
+  desc.style.width = "75%"
+  desc.innerHTML = `The ${stackName} is the most powerful combination of tools in your modern web dev arsenal.<br /><br /><strong>${fe.name}</strong> - ${fe.description}<br /><br /><strong>${be.name}</strong> - ${be.description}<br /><br /><strong>${db.name}</strong> - ${db.description}<br /><br /><strong>${test.name}</strong> - ${test.description}`
+
+  reality.style.backgroundColor = "black"
+  reality.style.borderTop = `4px solid ${fgColor}`
+  reality.style.color = fgColor
+  reality.style.margin = "0px"
+  reality.style.marginTop = "2em"
+  reality.style.padding = "0.5em 2em 1.5em"
+  reality.style.width = "100vw"
+
   if (window.innerWidth < 600) {
-    const body = document.getElementsByTagName('body')[0]
-    body.style.backgroundColor = bgColor
-    body.style.margin = "0px"
-    body.style.textAlign = "center"
-
-    const title = document.getElementById('title')
-    title.style.color = fgColor
-    title.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     title.style.fontSize = "2em"
-    title.style.marginBottom = "0.5em"
-    title.style.marginTop = "1em"
-    title.innerHTML = `The ${stackName}`
 
-    const subtitle = document.getElementById('subtitle')
-    subtitle.style.backgroundColor = fgColor
-    subtitle.style.border = `4px solid white`
-    subtitle.style.borderRadius = '1em'
-    subtitle.style.color = bgColor
-    subtitle.style.display = 'inline-block'
-    subtitle.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
-    subtitle.style.padding = '1em'
     subtitle.innerHTML = `${fe.name}<br />${be.name}<br />${db.name}<br />${test.name}`
 
-    const stab = document.getElementById('stab')
-    stab.style.color = fgColor
-    stab.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     stab.style.fontSize = "0.9em"
     stab.style.padding = "0 10%"
-    stab.style.lineHeight = "1.75em"
-    stab.innerHTML = `Welcome to ${baseName}, the next step in the evolution of the web.  Simplify and enhance your development and delivery experience to boost efficiency so you can ship better code, faster.`
 
-    const why = document.getElementById('why')
-    why.style.backgroundColor = fgColor
-    why.style.borderRadius = '1em'
     why.style.boxSizing = "border-box"
-    why.style.color = bgColor
     why.style.display = 'inline-block'
-    why.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     why.style.padding = "0.5em"
     why.style.width = "90vw"
-    why.innerHTML = `Why ${baseName}?`
 
-    const desc = document.getElementById('desc')
-    desc.style.backgroundColor = 'black'
-    desc.style.border = `4px solid ${fgColor}`
-    desc.style.color = fgColor
-    desc.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     desc.style.fontSize = "0.9em"
-    desc.style.margin = "1em auto"
     desc.style.padding = "0.5em"
-    desc.style.width = "75%"
-    desc.innerHTML = `The ${stackName} is the most powerful combination of tools in your modern web dev arsenal.<br /><br /><strong>${fe.name}</strong> - ${fe.description}<br /><br /><strong>${be.name}</strong> - ${be.description}<br /><br /><strong>${db.name}</strong> - ${db.description}<br /><br /><strong>${test.name}</strong> - ${test.description}`
 
-    const reality = document.getElementById('reality')
-    reality.style.backgroundColor = "black"
-    reality.style.borderTop = `4px solid ${fgColor}`
-    reality.style.color = fgColor
-    reality.style.margin = "0px"
-    reality.style.marginTop = "2em"
-    reality.style.padding = "0.5em 2em 1.5em"
-    reality.style.width = "100vw"
+    reality.style.boxSizing = "inherit"
   } else {
-    const body = document.getElementsByTagName('body')[0]
     body.style.backgroundColor = bgColor
     body.style.margin = "0px"
     body.style.textAlign = "center"
     
-    const title = document.getElementById('title')
-    title.style.color = fgColor
-    title.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     title.style.fontSize = "4em"
-    title.style.marginBottom = "0.5em"
-    title.style.marginTop = "1em"
-    title.innerHTML = `The ${stackName}`
     
-    const subtitle = document.getElementById('subtitle')
-    subtitle.style.backgroundColor = fgColor
-    subtitle.style.border = `4px solid white`
-    subtitle.style.borderRadius = '1em'
-    subtitle.style.color = bgColor
-    subtitle.style.display = 'inline-block'
-    subtitle.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
-    subtitle.style.padding = '1em'
     subtitle.innerHTML = `${fe.name} - ${be.name} - ${db.name} - ${test.name}`
     
-    const stab = document.getElementById('stab')
-    stab.style.color = fgColor
-    stab.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     stab.style.fontSize = "1.5em"
     stab.style.padding = "0 25%"
-    stab.style.lineHeight = "1.75em"
-    stab.innerHTML = `Welcome to ${baseName}, the next step in the evolution of the web.  Simplify and enhance your development and delivery experience to boost efficiency so you can ship better code, faster.`
     
-    const why = document.getElementById('why')
-    why.style.backgroundColor = fgColor
-    why.style.borderRadius = '1em'
     why.style.boxSizing = 'inherit'
-    why.style.color = bgColor
     why.style.display = 'inline-block'
-    why.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     why.style.padding = '1em 2em'
     why.style.width = 'inherit'
-    why.innerHTML = `Why ${baseName}?`
 
-    const desc = document.getElementById('desc')
-    desc.style.backgroundColor = 'black'
-    desc.style.border = `4px solid ${fgColor}`
-    desc.style.color = fgColor
-    desc.style.fontFamily = fonts[randInt(0, fonts.length - 1)]
     desc.style.fontSize = "1.5em"
-    desc.style.margin = "1em auto"
     desc.style.padding = "1.5em"
-    desc.style.width = "75%"
-    desc.innerHTML = `The ${stackName} is the most powerful combination of tools in your modern web dev arsenal.<br /><br /><strong>${fe.name}</strong> - ${fe.description}<br /><br /><strong>${be.name}</strong> - ${be.description}<br /><br /><strong>${db.name}</strong> - ${db.description}<br /><br /><strong>${test.name}</strong> - ${test.description}`
 
-    const reality = document.getElementById('reality')
-    reality.style.backgroundColor = "black"
     reality.style.boxSizing = "border-box"
-    reality.style.borderTop = `4px solid ${fgColor}`
-    reality.style.color = fgColor
-    reality.style.margin = "0px"
-    reality.style.marginTop = "2em"
-    reality.style.padding = "0.5em 2em 1.5em"
-    reality.style.width = "100vw"
   }
 }
 
