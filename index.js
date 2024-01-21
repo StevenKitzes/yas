@@ -323,7 +323,9 @@ function restyleByWindowWidth() {
   reality.style.padding = "0.5em 2em 1.5em"
   reality.style.width = "100vw"
 
-  if (window.innerWidth < 600) {
+  const width = (window.innerWidth && window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+  if (width < 500) {
     title.style.fontSize = "2em"
 
     subtitle.innerHTML = `${fe.name}<br />${be.name}<br />${db.name}<br />${test.name}`
